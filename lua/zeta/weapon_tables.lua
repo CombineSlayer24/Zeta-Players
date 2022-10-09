@@ -2234,7 +2234,7 @@ _ZetaWeaponDataTable = {
                 wep:CallOnRemove("zeta_paig_sb_stopsound"..wep:EntIndex(), function()
                     if wep.PAIG_LoopSound then wep.PAIG_LoopSound:Stop() wep.PAIG_LoopSound = nil end
                 end)
-    
+
                 timer.Create("zeta_sentrybuster_intro_loop"..wep:EntIndex(), 5, 0, function()
                     if !IsValid(wep) then return end
                     wep.PAIG_LoopIntroSound = CreateSound(wep, "zetaplayer/weapon/paig/sb_intro.wav")
@@ -2277,7 +2277,7 @@ _ZetaWeaponDataTable = {
     
                     fuseSnd = "zetaplayer/weapon/paig/sb_explode.wav"
                     fuseTime = SoundDuration("zetaplayer/weapon/paig/sb_spin.wav")
-    
+
                     if voice_rnd_attacker == 1 then
                         zeta:PlayTauntSound()
                     elseif voice_rnd_attacker == 2 then
@@ -2286,28 +2286,43 @@ _ZetaWeaponDataTable = {
                 end
     
                 for _, v in ipairs(ents.FindByClass("npc_zetaplayer")) do
-                    if v != zeta and v:GetRangeSquaredTo(zeta) <= (400*400) and v:CanSee(zeta) then
-                        timer.Simple(math.Rand(0.1, 0.5), function()
-                            if !IsValid(v) or v.IsDead then return end
-                            v:Panic(zeta, 5, true, false)
-                            v:PlayFallingSound()
-                        end)
+                    if !wep.PAIG_SentryBuster then
+                        if v != zeta and v:GetRangeSquaredTo(zeta) <= (400*400) and v:CanSee(zeta) then
+                            timer.Simple(math.Rand(0.1, 0.5), function()
+                                if !IsValid(v) or v.IsDead then return end
+                                v:Panic(zeta, 5, true, false)
+                                v:PlayFallingSound()
+                            end)
+                        end
+                        
+                    elseif wep.PAIG_SentryBuster then
+                        if v != zeta and v:GetRangeSquaredTo(zeta) <= (750*750) and v:CanSee(zeta) then
+                            timer.Simple(math.Rand(0.1, 0.5), function()
+                                if !IsValid(v) or v.IsDead then return end
+                                v:Panic(zeta, 5, true, false)
+                                v:PlayFallingSound()
+                            end)
+                        end
                     end
                 end
-    
+
                 timer.Simple(fuseTime, function()
                     if !IsValid(zeta) or !IsValid(wep) then return end
     
                     zeta.SilenceDeath = true
-    
+
                     local effectdata = EffectData()
                     effectdata:SetOrigin(wep:GetPos())
                     util.Effect("Explosion", effectdata, true, true)
                     wep:EmitSound(fuseSnd, 90)
-    
-                    util.BlastDamage(zeta, zeta, wep:GetPos(), 400, 1000)
+
+                    if !wep.PAIG_SentryBuster then
+                        util.BlastDamage(zeta, zeta, wep:GetPos(), 400, 1000)
+                    end
+
                     if wep.PAIG_SentryBuster then
                         util.ScreenShake(wep:GetPos(),25,5,3,1000)
+                        util.BlastDamage(zeta, zeta, wep:GetPos(), 750, 1000)
                         
                         ParticleEffect("fluidSmokeExpl_ring_mvm", wep:GetPos() + Vector(50,50,25), wep:GetAngles())
                         ParticleEffect("fluidSmokeExpl_ring_mvm", wep:GetPos() + Vector(-50,-50,25), wep:GetAngles())
@@ -2317,7 +2332,7 @@ _ZetaWeaponDataTable = {
                         ParticleEffect("fluidSmokeExpl_ring_mvm", wep:GetPos() + Vector(-50,-50,25), wep:GetAngles())
                         ParticleEffect("fluidSmokeExpl_ring_mvm", wep:GetPos() + Vector(50,-50,25), wep:GetAngles())
         
-    
+
                         for _, v in ipairs(ents.FindInSphere(wep:GetPos(), 1000)) do
                             if IsValid(v) and v:IsPlayer() then
                                 local fadeTime = 1.0
@@ -2335,8 +2350,9 @@ _ZetaWeaponDataTable = {
     
                 return blockData
             end
-        },
-    },
+        }
+    }, 
+
 
     SHOVEL = {
         mdl = 'models/zetaplayers/weapons/w_shovel.mdl', 
