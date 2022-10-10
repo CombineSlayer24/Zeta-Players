@@ -328,7 +328,11 @@ function ENT:ShootWeapon(target, fireData,ismelee)
         if blockData.shell == false then self:CreateShellEject() end
         if blockData.snd == false then
             local fireSnd = (istable(fireData.snd) and #fireData.snd > 0) and fireData.snd[math.random(#fireData.snd)] or fireData.snd
-            self.WeaponENT:EmitSound(fireSnd, 80, math.random(98, 102), 1, CHAN_WEAPON)
+            if GetConVar('zetaplayer_weapon_loud'):GetInt() == 0 then
+                self.WeaponENT:EmitSound(fireSnd, 80, math.random(98, 102), 1, CHAN_WEAPON)
+            elseif GetConVar('zetaplayer_weapon_loud'):GetInt() == 1 then
+                self.WeaponENT:EmitSound(fireSnd, 90, math.random(98, 102), 1, CHAN_WEAPON)
+            end
         end
 
         if blockData.bullet == false then

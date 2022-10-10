@@ -2074,6 +2074,7 @@ AddZetaConvar("zetaplayer_paig_sentrybustermode", true, 0, "If PAIG should use s
 AddZetaConvar("zetaplayer_experimentalcombat", true, 0, "Enables the experimental combat behavior to zetas.", 0, 1)
 
 AddZetaConvar("zetaplayer_textmixing", true, 0, "If text should be modified by sentence mixing", 0, 1)
+AddZetaConvar("zetaplayer_weapon_loud", true, 0, "If Zeta weapons should be louder", 0, 1)
 
 -- DEBUG CONVARS
     AddZetaConvar('zetaplayer_debug_warnrapidstatechange', false, 0, "If rapid state changes should be warned", 0, 1)

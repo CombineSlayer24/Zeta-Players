@@ -1412,62 +1412,6 @@ _ZetaWeaponDataTable = {
         }
     }, 
 
-
-    TF2SHOTGUN = {
-        mdl = 'models/zetatf2/weapons/w_shotgun.mdl',
-        nobonemerge = true,
-        hidewep = false,
-        offPos = Vector(0,0,0),   
-        offAng = Angle(-10,0,0),
-        lethal = true,
-        range = true,
-        melee = false,
-        clip = 6,
-        prettyPrint = 'TF2 Shotgun',
-    
-        anims = {
-            idle = ACT_HL2MP_IDLE_SHOTGUN,
-            move = ACT_HL2MP_RUN_SHOTGUN,
-            jump = ACT_HL2MP_JUMP_SHOTGUN,
-            crouch = ACT_HL2MP_WALK_CROUCH_SHOTGUN
-        },
-    
-        fireData = {
-            rateMin = 0.625,
-            rateMax = 0.625,
-            anim = ACT_HL2MP_GESTURE_RANGE_ATTACK_SHOTGUN,
-            muzzleFlash = 1,
-            snd = "zetaplayer/weapon/tf2/shotgun_shoot.wav",
-            
-            dmgMin = 5,
-            dmgMax = 5,
-            force = 6,
-            num = 10,
-            ammo = 'buckshot',
-            spread = 0.2,
-            tracer = 'Tracer'
-        },
-    
-        shellData = {
-            name = 'ShotgunShellEject',
-            offPos = {
-                forward = 0,
-                right = 0,
-                up = 1
-            },
-            offAng = Angle(0,90,0)
-        },
-    
-        reloadData = {
-            anim = ACT_HL2MP_GESTURE_RELOAD_SHOTGUN,
-            time = 2.3,
-            snds = {
-                {2, 'zetaplayer/weapon/tf2/shotgun_cock_back.wav'},
-                {2.2, 'zetaplayer/weapon/tf2/shotgun_cock_forward.wav'},
-            }
-        }
-    }, 
-
     AWP = {
         mdl = 'models/weapons/w_snip_awp.mdl',
         
