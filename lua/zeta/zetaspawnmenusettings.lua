@@ -758,9 +758,6 @@ zetaplayer_allowphysgun ]]
             end
         end
 
-        panel:CheckBox('Louder Weapons', 'zetaplayer_weapon_loud')
-        panel:ControlHelp("If Zetas weapons should be loud (defualt sndlevel is 80, louder is 100")
-
         panel:Help('\n\nChange what weapons the Zetas are allowed to equip. ')
 
             local box = panel:ComboBox('Spawn weapon','zetaplayer_spawnweapon')
