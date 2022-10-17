@@ -2030,7 +2030,7 @@ _ZetaWeaponDataTable = {
                     zeta:SetLayerCycle(layerID, 0.2)
                     zeta:SetLayerPlaybackRate(layerID, 1.6)
     
-                    wep:EmitSound("zetaplayer/weapon/xm1014/xm1014_insertshell.wav", _, _, _, CHAN_ITEM)
+                    wep:EmitSound("zetaplayer/weapon/xm1014/xm1014_insertshell.wav", nil, nil, nil, CHAN_ITEM)
                     if repsLeft == 0 then
                         timer.Simple(0.5, function()
                             if !IsValid(zeta) or !IsValid(wep) or !zeta:IsValidLayer(layerID) then return end
@@ -2190,8 +2190,12 @@ _ZetaWeaponDataTable = {
     
                 zeta:CreateThinkFunction("PAIG_HolsterSoundHack", 0, 0, function()
                     if zeta.Weapon == "IMPACTGRENADE" or !wep.PAIG_LoopSound and !wep.PAIG_LoopIntroSound then return end
-                    wep.PAIG_LoopSound:Stop() 
-                    wep.PAIG_LoopIntroSound:Stop() 
+                    if wep.PAIG_LoopSound then
+                        wep.PAIG_LoopSound:Stop() 
+                    end
+                    if wep.PAIG_LoopIntroSound then
+                        wep.PAIG_LoopIntroSound:Stop() 
+                    end
                     wep.PAIG_LoopSound = nil
                     wep.PAIG_LoopIntroSound = nil
                     return "stop"
@@ -5611,14 +5615,14 @@ L4D_PISTOL_P220 = {
 
     changeCallback = function(callback, zeta, wep)
         zeta.AttackCooldown = CurTime() + 0.95
-        wep:EmitSound("zetaplayer/weapon/l4d_weapons/pistol_p220/pistol_deploy_1.wav", _, _, _, CHAN_ITEM)
+        wep:EmitSound("zetaplayer/weapon/l4d_weapons/pistol_p220/pistol_deploy_1.wav", nil, nil, nil, CHAN_ITEM)
         timer.Simple(0.2, function()
             if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_PISTOL_P220" then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/pistol_p220/pistol_slideback_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/pistol_p220/pistol_slideback_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
         timer.Simple(0.433, function()
             if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_PISTOL_P220" then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/pistol_p220/pistol_slideforward_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/pistol_p220/pistol_slideforward_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
     end,
 
@@ -5665,7 +5669,7 @@ L4D_PISTOL_P220 = {
             for i = 1, #snds do
                 timer.Simple(snds[i][1], function() 
                     if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_PISTOL_P220" then return end
-                    wep:EmitSound(snds[i][2], _, _, _, CHAN_ITEM)
+                    wep:EmitSound(snds[i][2], nil, nil, nil, CHAN_ITEM)
                 end)
             end
 
@@ -5697,11 +5701,11 @@ L4D_PISTOL_GLOCK26 = {
         wep:EmitSound("zetaplayer/weapon/l4d_weapons/pistol_p220/pistol_deploy_1.wav", 70)
         timer.Simple(0.2, function()
             if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_PISTOL_GLOCK26" then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/pistol_p220/pistol_slideback_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/pistol_p220/pistol_slideback_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
         timer.Simple(0.433, function()
             if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_PISTOL_GLOCK26" then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/pistol_p220/pistol_slideforward_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/pistol_p220/pistol_slideforward_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
     end,
 
@@ -5748,7 +5752,7 @@ L4D_PISTOL_GLOCK26 = {
             for i = 1, #snds do
                 timer.Simple(snds[i][1], function() 
                     if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_PISTOL_GLOCK26" then return end
-                    wep:EmitSound(snds[i][2], _, _, _, CHAN_ITEM)
+                    wep:EmitSound(snds[i][2], nil, nil, nil, CHAN_ITEM)
                 end)
             end
 
@@ -5777,14 +5781,14 @@ L4D_PISTOL_MAGNUM = {
 
     changeCallback = function(callback, zeta, wep)
         zeta.AttackCooldown = CurTime() + 0.95
-        wep:EmitSound("zetaplayer/weapon/l4d_weapons/magnum/pistol_deploy_1.wav", _, _, _, CHAN_ITEM)
+        wep:EmitSound("zetaplayer/weapon/l4d_weapons/magnum/pistol_deploy_1.wav", nil, nil, nil, CHAN_ITEM)
         timer.Simple(0.25, function()
             if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_PISTOL_MAGNUM" then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/magnum/pistol_slideback_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/magnum/pistol_slideback_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
         timer.Simple(0.45, function()
             if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_PISTOL_MAGNUM" then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/magnum/pistol_slideforward_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/magnum/pistol_slideforward_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
     end,
 
@@ -5831,7 +5835,7 @@ L4D_PISTOL_MAGNUM = {
             for i = 1, #snds do
                 timer.Simple(snds[i][1], function() 
                     if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_PISTOL_MAGNUM" then return end
-                    wep:EmitSound(snds[i][2], _, _, _, CHAN_ITEM)
+                    wep:EmitSound(snds[i][2], nil, nil, nil, CHAN_ITEM)
                 end)
             end
 
@@ -5860,14 +5864,14 @@ L4D_SMG = {
 
     changeCallback = function(callback, zeta, wep)
         zeta.AttackCooldown = CurTime() + 0.95
-        wep:EmitSound("zetaplayer/weapon/l4d_weapons/smg/smg_deploy_1.wav", _, _, _, CHAN_ITEM)
+        wep:EmitSound("zetaplayer/weapon/l4d_weapons/smg/smg_deploy_1.wav", nil, nil, nil, CHAN_ITEM)
         timer.Simple(0.33, function()
             if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_SMG" then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/smg/smg_slideback_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/smg/smg_slideback_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
         timer.Simple(0.733, function()
             if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_SMG" then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/smg/smg_slideforward_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/smg/smg_slideforward_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
     end,
 
@@ -5930,14 +5934,14 @@ L4D_SMG_SILENCED = {
 
     changeCallback = function(callback, zeta, wep)
         zeta.AttackCooldown = CurTime() + 0.95
-        wep:EmitSound("zetaplayer/weapon/l4d_weapons/smg/smg_deploy_1.wav", _, _, _, CHAN_ITEM)
+        wep:EmitSound("zetaplayer/weapon/l4d_weapons/smg/smg_deploy_1.wav", nil, nil, nil, CHAN_ITEM)
         timer.Simple(0.33, function()
             if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_SMG_SILENCED" then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/smg/smg_slideback_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/smg/smg_slideback_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
         timer.Simple(0.733, function()
             if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_SMG_SILENCED" then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/smg/smg_slideforward_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/smg/smg_slideforward_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
     end,
 
@@ -6000,7 +6004,7 @@ L4D_SHOTGUN_PUMP = {
 
     changeCallback = function(callback, zeta, wep)
         zeta.AttackCooldown = CurTime() + 0.95
-        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_deploy_1.wav", _, _, math.Rand(0.82, 0.85), CHAN_ITEM)
+        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_deploy_1.wav", nil, nil, math.Rand(0.82, 0.85), CHAN_ITEM)
     end,
 
     fireData = {
@@ -6022,7 +6026,7 @@ L4D_SHOTGUN_PUMP = {
             blockData.shell = true
             timer.Simple(0.475, function()
                 if !zeta:IsValid() or !IsValid(wep) then return end
-                wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_pump_1.wav", _, _, math.Rand(0.62, 0.78), CHAN_ITEM)
+                wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_pump_1.wav", nil, nil, math.Rand(0.62, 0.78), CHAN_ITEM)
                 zeta:CreateShellEject()
             end)
 
@@ -6067,7 +6071,7 @@ L4D_SHOTGUN_PUMP = {
                 zeta:SetLayerCycle(layerID, 0.2)
                 zeta:SetLayerPlaybackRate(layerID, 1.6)
 
-                wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_load_shell_"..(math.random(2) == 1 and "2" or "4")..".wav", _, math.random(90, 105), math.Rand(0.67, 0.80), CHAN_ITEM)
+                wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_load_shell_"..(math.random(2) == 1 and "2" or "4")..".wav", nil, math.random(90, 105), math.Rand(0.67, 0.80), CHAN_ITEM)
                 if repsLeft == 0 then
                     timer.Simple(0.5, function()
                         if !IsValid(zeta) or !IsValid(wep) or !zeta:IsValidLayer(layerID) then return end
@@ -6101,7 +6105,7 @@ L4D_SHOTGUN_CHROME = {
 
     changeCallback = function(callback, zeta, wep)
         zeta.AttackCooldown = CurTime() + 0.95
-        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_deploy_1.wav", _, _, math.Rand(0.82, 0.85), CHAN_ITEM)
+        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_deploy_1.wav", nil, nil, math.Rand(0.82, 0.85), CHAN_ITEM)
     end,
 
     fireData = {
@@ -6123,7 +6127,7 @@ L4D_SHOTGUN_CHROME = {
             blockData.shell = true
             timer.Simple(0.475, function()
                 if !zeta:IsValid() or !IsValid(wep) then return end
-                wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_pump_1.wav", _, _, math.Rand(0.62, 0.78), CHAN_ITEM)
+                wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_pump_1.wav", nil, nil, math.Rand(0.62, 0.78), CHAN_ITEM)
                 zeta:CreateShellEject()
             end)
 
@@ -6168,7 +6172,7 @@ L4D_SHOTGUN_CHROME = {
                 zeta:SetLayerCycle(layerID, 0.2)
                 zeta:SetLayerPlaybackRate(layerID, 1.6)
 
-                wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_load_shell_"..(math.random(2) == 1 and "2" or "4")..".wav", _, math.random(90, 105), math.Rand(0.67, 0.80), CHAN_ITEM)
+                wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_load_shell_"..(math.random(2) == 1 and "2" or "4")..".wav", nil, math.random(90, 105), math.Rand(0.67, 0.80), CHAN_ITEM)
                 if repsLeft == 0 then
                     timer.Simple(0.5, function()
                         if !IsValid(zeta) or !IsValid(wep) or !zeta:IsValidLayer(layerID) then return end
@@ -6202,7 +6206,7 @@ L4D_SHOTGUN_AUTOSHOT = {
 
     changeCallback = function(callback, zeta, wep)
         zeta.AttackCooldown = CurTime() + 0.95
-        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_deploy_1.wav", _, _, math.Rand(0.82, 0.85), CHAN_ITEM)
+        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_deploy_1.wav", nil, nil, math.Rand(0.82, 0.85), CHAN_ITEM)
     end,
 
     fireData = {
@@ -6269,17 +6273,17 @@ L4D_SHOTGUN_AUTOSHOT = {
                     return
                 end
 
-                wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_load_shell_"..(math.random(2) == 1 and "2" or "4")..".wav", _, math.random(90, 105), math.Rand(0.67, 0.80), CHAN_ITEM)
+                wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_load_shell_"..(math.random(2) == 1 and "2" or "4")..".wav", nil, math.random(90, 105), math.Rand(0.67, 0.80), CHAN_ITEM)
                 if repsLeft == 0 then
                     zeta:SetLayerCycle(layerID, 0.4)
                     zeta:SetLayerPlaybackRate(layerID, 2.0)
                     timer.Simple(0.175, function()
                         if !IsValid(zeta) or !IsValid(wep) then return end
-                        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/autoshotgun_boltback.wav", _, _, _, CHAN_ITEM)
+                        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/autoshotgun_boltback.wav", nil, nil, nil, CHAN_ITEM)
                     end)
                     timer.Simple(0.325, function()
                         if !IsValid(zeta) or !IsValid(wep) then return end
-                        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/autoshotgun_boltforward.wav", _, _, _, CHAN_ITEM)   
+                        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/autoshotgun_boltforward.wav", nil, nil, nil, CHAN_ITEM)   
                     end)
                 else
                     if repsLeft == (shellAmount - 1) then
@@ -6321,14 +6325,14 @@ L4D_SHOTGUN_SPAS12 = {
             wep.CanPlayDeploySnd = true
             return 
         end
-        wep:EmitSound('zetaplayer/weapon/l4d_weapons/shotgun/shotgun_deploy_1.wav', _, _, math.Rand(0.82, 0.85), CHAN_ITEM)
+        wep:EmitSound('zetaplayer/weapon/l4d_weapons/shotgun/shotgun_deploy_1.wav', nil, nil, math.Rand(0.82, 0.85), CHAN_ITEM)
         timer.Simple(0.33, function()
             if !IsValid(zeta) or !IsValid(wep) then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/autoshotgun_spas_boltback.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/autoshotgun_spas_boltback.wav", nil, nil, nil, CHAN_ITEM)
         end)
         timer.Simple(0.66, function()
             if !IsValid(zeta) or !IsValid(wep) then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/autoshotgun_spas_boltforward.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/autoshotgun_spas_boltforward.wav", nil, nil, nil, CHAN_ITEM)
         end)
     end,
 
@@ -6404,17 +6408,17 @@ L4D_SHOTGUN_SPAS12 = {
                     return
                 end
 
-                wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_load_shell_"..(math.random(2) == 1 and "2" or "4")..".wav", _, math.random(90, 105), math.Rand(0.67, 0.80), CHAN_ITEM)
+                wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/shotgun_load_shell_"..(math.random(2) == 1 and "2" or "4")..".wav", nil, math.random(90, 105), math.Rand(0.67, 0.80), CHAN_ITEM)
                 if repsLeft == 0 then
                     zeta:SetLayerCycle(layerID, 0.4)
                     zeta:SetLayerPlaybackRate(layerID, 2.0)
                     timer.Simple(0.175, function()
                         if !IsValid(zeta) or !IsValid(wep) then return end
-                        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/autoshotgun_spas_boltback.wav", _, _, _, CHAN_ITEM)
+                        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/autoshotgun_spas_boltback.wav", nil, nil, nil, CHAN_ITEM)
                     end)
                     timer.Simple(0.325, function()
                         if !IsValid(zeta) or !IsValid(wep) then return end
-                        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/autoshotgun_spas_boltforward.wav", _, _, _, CHAN_ITEM)   
+                        wep:EmitSound("zetaplayer/weapon/l4d_weapons/shotgun/autoshotgun_spas_boltforward.wav", nil, nil, nil, CHAN_ITEM)   
                     end)
                 else
                     if repsLeft == (shellAmount - 1) then
@@ -6453,14 +6457,14 @@ L4D_RIFLE_M16 = {
 
     changeCallback = function(callback, zeta, wep)
         zeta.AttackCooldown = CurTime() + 0.95
-        wep:EmitSound('zetaplayer/weapon/l4d_weapons/rifle/rifle_deploy_1.wav', _, _, _, CHAN_ITEM)
+        wep:EmitSound('zetaplayer/weapon/l4d_weapons/rifle/rifle_deploy_1.wav', nil, nil, nil, CHAN_ITEM)
         timer.Simple(0.35, function()
             if !IsValid(zeta) or !IsValid(wep) then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/rifle/rifle_slideback_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/rifle/rifle_slideback_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
         timer.Simple(0.66, function()
             if !IsValid(zeta) or !IsValid(wep) then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/rifle/rifle_slideforward_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/rifle/rifle_slideforward_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
     end,
 
@@ -6522,14 +6526,14 @@ L4D_RIFLE_AK47 = {
 
     changeCallback = function(callback, zeta, wep)
         zeta.AttackCooldown = CurTime() + 0.95
-        wep:EmitSound('zetaplayer/weapon/l4d_weapons/rifle_ak47/rifle_deploy_1.wav', _, _, _, CHAN_ITEM)
+        wep:EmitSound('zetaplayer/weapon/l4d_weapons/rifle_ak47/rifle_deploy_1.wav', nil, nil, nil, CHAN_ITEM)
         timer.Simple(0.366, function()
             if !IsValid(zeta) or !IsValid(wep) then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/rifle_ak47/rifle_slideback.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/rifle_ak47/rifle_slideback.wav", nil, nil, nil, CHAN_ITEM)
         end)
         timer.Simple(0.7, function()
             if !IsValid(zeta) or !IsValid(wep) then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/rifle_ak47/rifle_slideforward.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/rifle_ak47/rifle_slideforward.wav", nil, nil, nil, CHAN_ITEM)
         end)
     end,
 
@@ -6595,14 +6599,14 @@ L4D_RIFLE_SCARL = {
 
     changeCallback = function(callback, zeta, wep)
         zeta.AttackCooldown = CurTime() + 0.95
-        wep:EmitSound('zetaplayer/weapon/l4d_weapons/rifle/rifle_deploy_1.wav', _, _, _, CHAN_ITEM)
+        wep:EmitSound('zetaplayer/weapon/l4d_weapons/rifle/rifle_deploy_1.wav', nil, nil, nil, CHAN_ITEM)
         timer.Simple(0.4, function()
             if !IsValid(zeta) or !IsValid(wep) then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/rifle_desert/rifle_slideback_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/rifle_desert/rifle_slideback_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
         timer.Simple(0.733, function()
             if !IsValid(zeta) or !IsValid(wep) then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/rifle_desert/rifle_slideforward_1.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/rifle_desert/rifle_slideforward_1.wav", nil, nil, nil, CHAN_ITEM)
         end)
     end,
 
@@ -6711,14 +6715,14 @@ L4D_RIFLE_RUGER14 = {
 
     changeCallback = function(callback, zeta, wep)
         zeta.AttackCooldown = CurTime() + 1.14
-        wep:EmitSound('zetaplayer/weapon/l4d_weapons/rifle/rifle_deploy_1.wav',  _, _, _, CHAN_ITEM)
+        wep:EmitSound('zetaplayer/weapon/l4d_weapons/rifle/rifle_deploy_1.wav',  nil, nil, nil, CHAN_ITEM)
         timer.Simple(0.56, function()
             if !IsValid(zeta) or !IsValid(wep) then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/hunting_rifle/hunting_rifle_boltback.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/hunting_rifle/hunting_rifle_boltback.wav", nil, nil, nil, CHAN_ITEM)
         end)
         timer.Simple(0.8, function()
             if !IsValid(zeta) or !IsValid(wep) then return end
-            wep:EmitSound("zetaplayer/weapon/l4d_weapons/hunting_rifle/hunting_rifle_boltforward.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/l4d_weapons/hunting_rifle/hunting_rifle_boltforward.wav", nil, nil, nil, CHAN_ITEM)
         end)
     end,
 
@@ -6783,7 +6787,7 @@ L4D_RIFLE_MILITARYS = {
 
     changeCallback = function(callback, zeta, wep)
         zeta.AttackCooldown = CurTime() + 0.95
-        wep:EmitSound('zetaplayer/weapon/l4d_weapons/sniper_military/sniper_military_deploy_1.wav', _, _, _, CHAN_ITEM)
+        wep:EmitSound('zetaplayer/weapon/l4d_weapons/sniper_military/sniper_military_deploy_1.wav', nil, nil, nil, CHAN_ITEM)
     end,
 
     fireData = {
@@ -7406,7 +7410,7 @@ L4D_PISTOL_M1911 = {
 
     changeCallback = function(callback, zeta, wep)
         zeta.AttackCooldown = CurTime() + 0.95
-        wep:EmitSound("zetaplayer/weapon/l4d_weapons/pistol_1911/pistol_deploy_1.wav", _, _, _, CHAN_ITEM)
+        wep:EmitSound("zetaplayer/weapon/l4d_weapons/pistol_1911/pistol_deploy_1.wav", nil, nil, nil, CHAN_ITEM)
     end,
 
     fireData = {
@@ -7454,7 +7458,7 @@ L4D_PISTOL_M1911 = {
             for i = 1, #snds do
                 timer.Simple(snds[i][1], function() 
                     if !IsValid(zeta) or !IsValid(wep) or zeta.Weapon != "L4D_PISTOL_M1911" then return end
-                    wep:EmitSound(snds[i][2], _, _, _, CHAN_ITEM)
+                    wep:EmitSound(snds[i][2], nil, nil, nil, CHAN_ITEM)
                 end)
             end
 
@@ -7967,7 +7971,7 @@ M3 = {
     changeCallback = function(callback, zeta, wep)
         timer.Simple(0.4, function()
             if !IsValid(wep) then return end
-            wep:EmitSound("zetaplayer/weapon/m3/m3_pump.wav", _, _, _, CHAN_ITEM)
+            wep:EmitSound("zetaplayer/weapon/m3/m3_pump.wav", nil, nil, nil, CHAN_ITEM)
         end)
     end,
 
@@ -8037,11 +8041,11 @@ M3 = {
                 zeta:SetLayerCycle(layerID, 0.2)
                 zeta:SetLayerPlaybackRate(layerID, 1.6)
 
-                wep:EmitSound("zetaplayer/weapon/m3/m3_insertshell.wav", _, _, _, CHAN_ITEM)
+                wep:EmitSound("zetaplayer/weapon/m3/m3_insertshell.wav", nil, nil, nil, CHAN_ITEM)
                 if repsLeft == 0 then
                     timer.Simple(0.36, function()
                         if !IsValid(zeta) or !IsValid(wep) then return end
-                        wep:EmitSound("zetaplayer/weapon/m3/m3_pump.wav", _, _, _, CHAN_ITEM)
+                        wep:EmitSound("zetaplayer/weapon/m3/m3_pump.wav", nil, nil, nil, CHAN_ITEM)
                     end)
                 end
             end)
@@ -8467,7 +8471,7 @@ TF2_MINIGUN = {
             if zeta.Weapon == "TF2_MINIGUN" then return end
             if wep.AnimState == 2 then
                 wep.AnimState = 1
-                wep:EmitSound("zetaplayer/weapon/tf2/minigun_wind_down.wav", _, _, 0.9)
+                wep:EmitSound("zetaplayer/weapon/tf2/minigun_wind_down.wav", nil, nil, 0.9)
             end
             KillSounds()
             return "stop"
@@ -8486,7 +8490,7 @@ TF2_MINIGUN = {
             if CurTime() > wep.NextAnimStateTime then
                 if wep.AnimState == 1 then
                     wep.NextAnimStateTime = CurTime() + SoundDuration("zetaplayer/weapon/tf2/minigun_wind_up.wav")
-                    wep:EmitSound("zetaplayer/weapon/tf2/minigun_wind_up.wav", _, _, 0.9)
+                    wep:EmitSound("zetaplayer/weapon/tf2/minigun_wind_up.wav", nil, nil, 0.9)
                     wep.AnimState = 2
                 elseif wep.AnimState == 2 then
                     if wep.SpinSound and !wep.SpinSound:IsPlaying() then wep.SpinSound:Play() end
@@ -8502,7 +8506,7 @@ TF2_MINIGUN = {
         elseif wep.AnimState == 2 then
             if wep.SpinSound and wep.SpinSound:IsPlaying() then wep.SpinSound:Stop() end
             if wep.SpinSound and wep.ShootSound:IsPlaying() then wep.ShootSound:Stop() end
-            wep:EmitSound("zetaplayer/weapon/tf2/minigun_wind_down.wav", _, _, 0.9)
+            wep:EmitSound("zetaplayer/weapon/tf2/minigun_wind_down.wav", nil, nil, 0.9)
             wep.NextAnimStateTime = CurTime() + 1.5
             wep.AnimState = 1
         end
@@ -10434,6 +10438,8 @@ local lightSaber = weapons.Get("weapon_lightsaber")
     
         table.Merge(_ZetaWeaponDataTable, MP1_MergeTable)
     end
+
+
 
 end
 
