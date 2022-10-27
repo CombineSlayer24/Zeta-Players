@@ -983,7 +983,17 @@ function ENT:AttackEnemy(ent, delayattack)
     self:SetNW2Bool("zeta_aggressor", true)
 end
 
+function ENT:AttackEnemyForceSpawn(ent, delayattack)
+    if self.PlayingPoker or !IsValid(ent) then return end
 
+    if !self.HasLethalWeapon or !self.HasMelee then self:ChangeWeapon("FIST") end
+
+    if math.random(100) <= self.VoiceChance then self:PlayTauntSound() end
+    self.Delayattack = delayattack or false
+    self.Enemy = ent
+    self:SetState("chase"..(self.HasMelee and "melee" or "ranged"))
+    self:SetNW2Bool("zeta_aggressor", true)
+end
 
 
 function ENT:FindEnemy()

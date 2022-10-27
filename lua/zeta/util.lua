@@ -38,7 +38,7 @@ end
 local level = 75
 local volume = 1
 
-sound.Add({
+--[[ sound.Add({
   name = "ZetaPlayer.AntlionFootstep",
   channel = CHAN_BODY, 
   level = level, 
@@ -332,9 +332,601 @@ sound.Add({
     "physics/glass/glass_sheet_step3.wav",
     "physics/glass/glass_sheet_step4.wav"
   }
+}) ]]
+
+// MvM Robot Footsteps
+// possible to make a command to toggle Robot Footsteps ???
+
+sound.Add({
+  name = "ZetaPlayer.AntlionFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
 })
 
+sound.Add({
+  name = "ZetaPlayer.BloodyFleshFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
 
+sound.Add({
+  name = "ZetaPlayer.ConcreteFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.DirtFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.EggShellFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.FleshFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.GrateFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.AlienFleshFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.SnowFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.PlasticFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.MetalFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.SandFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+sound.Add({
+  name = "ZetaPlayer.FoliageFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+sound.Add({
+  name = "ZetaPlayer.ComputerFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.SloshFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.TileFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.GrassFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.VentFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.WoodFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.DefaultFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+sound.Add({
+  name = "ZetaPlayer.GlassFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
+
+sound.Add({
+  name = "ZetaPlayer.WarpShieldFootstep",
+  channel = CHAN_BODY, 
+  level = level, 
+  volume = volume,
+  sound = {
+    "mvm/player/footsteps/robostep_01.wav",
+    "mvm/player/footsteps/robostep_02.wav",
+    "mvm/player/footsteps/robostep_03.wav",
+    "mvm/player/footsteps/robostep_04.wav",
+    "mvm/player/footsteps/robostep_05.wav",
+    "mvm/player/footsteps/robostep_06.wav",
+    "mvm/player/footsteps/robostep_07.wav",
+    "mvm/player/footsteps/robostep_08.wav",
+    "mvm/player/footsteps/robostep_09.wav",
+    "mvm/player/footsteps/robostep_10.wav",
+    "mvm/player/footsteps/robostep_11.wav",
+    "mvm/player/footsteps/robostep_12.wav",
+    "mvm/player/footsteps/robostep_13.wav",
+    "mvm/player/footsteps/robostep_14.wav",
+    "mvm/player/footsteps/robostep_15.wav",
+    "mvm/player/footsteps/robostep_16.wav",
+    "mvm/player/footsteps/robostep_17.wav",
+    "mvm/player/footsteps/robostep_18.wav"
+  }
+})
 
 ENT.Footsteps = {
   [MAT_ANTLION] = "ZetaPlayer.AntlionFootstep",
@@ -548,6 +1140,62 @@ ENT.WitnessSNDS = {
 -----------------------------------------------
 -- Util Stuff vui vui
 -----------------------------------------------
+
+function ENT:ZetaFoosteps()
+  if GetConVar('zetaplayer_allowmvmfootsteps'):GetInt() == 0 then
+    self.Footsteps = {
+      [MAT_ANTLION] = "ZetaPlayer.AntlionFootstep",
+      [MAT_BLOODYFLESH] = "ZetaPlayer.BloodyFleshFootstep",
+      [MAT_CONCRETE] = "ZetaPlayer.ConcreteFootstep",
+      [MAT_DIRT] = "ZetaPlayer.DirtFootstep",
+      [MAT_EGGSHELL] = "ZetaPlayer.EggShellFootstep",
+      [MAT_FLESH] = "ZetaPlayer.FleshFootstep",
+      [MAT_GRATE] = "ZetaPlayer.GrateFootstep",
+      [MAT_ALIENFLESH] = "ZetaPlayer.AlienFleshFootstep",
+      [MAT_SNOW] = "ZetaPlayer.SnowFootstep",
+      [MAT_PLASTIC] = "ZetaPlayer.PlasticFootstep",
+      [MAT_METAL] = "ZetaPlayer.MetalFootstep",
+      [MAT_SAND] = "ZetaPlayer.SandFootstep",
+      [MAT_FOLIAGE] = "ZetaPlayer.FoliageFootstep",
+      [MAT_COMPUTER] = "ZetaPlayer.ComputerFootstep",
+      [MAT_SLOSH] = "ZetaPlayer.SloshFootstep",
+      [MAT_TILE] = "ZetaPlayer.TileFootstep",
+      [MAT_GRASS] = "ZetaPlayer.GrassFootstep",
+      [MAT_VENT] = "ZetaPlayer.VentFootstep",
+      [MAT_WOOD] = "ZetaPlayer.WoodFootstep",
+      [MAT_DEFAULT] = "ZetaPlayer.DefaultFootstep",
+      [MAT_GLASS] = "ZetaPlayer.GlassFootstep",
+      [MAT_WARPSHIELD] = "ZetaPlayer.WarpShieldFootstep"
+    }
+  end
+
+  if GetConVar('zetaplayer_allowmvmfootsteps'):GetInt() == 1 then
+    self.Footsteps = {
+      [MAT_ANTLION] = "ZetaPlayer.Robot_AntlionFootstep",
+      [MAT_BLOODYFLESH] = "ZetaPlayer.Robot_BloodyFleshFootstep",
+      [MAT_CONCRETE] = "ZetaPlayer.Robot_ConcreteFootstep",
+      [MAT_DIRT] = "ZetaPlayer.Robot_DirtFootstep",
+      [MAT_EGGSHELL] = "ZetaPlayer.Robot_EggShellFootstep",
+      [MAT_FLESH] = "ZetaPlayer.Robot_FleshFootstep",
+      [MAT_GRATE] = "ZetaPlayer.Robot_GrateFootstep",
+      [MAT_ALIENFLESH] = "ZetaPlayer.Robot_AlienFleshFootstep",
+      [MAT_SNOW] = "ZetaPlayer.Robot_SnowFootstep",
+      [MAT_PLASTIC] = "ZetaPlayer.Robot_PlasticFootstep",
+      [MAT_METAL] = "ZetaPlayer.Robot_MetalFootstep",
+      [MAT_SAND] = "ZetaPlayer.Robot_SandFootstep",
+      [MAT_FOLIAGE] = "ZetaPlayer.Robot_FoliageFootstep",
+      [MAT_COMPUTER] = "ZetaPlayer.Robot_ComputerFootstep",
+      [MAT_SLOSH] = "ZetaPlayer.Robot_SloshFootstep",
+      [MAT_TILE] = "ZetaPlayer.Robot_TileFootstep",
+      [MAT_GRASS] = "ZetaPlayer.Robot_GrassFootstep",
+      [MAT_VENT] = "ZetaPlayer.Robot_VentFootstep",
+      [MAT_WOOD] = "ZetaPlayer.Robot_WoodFootstep",
+      [MAT_DEFAULT] = "ZetaPlayer.Robot_DefaultFootstep",
+      [MAT_GLASS] = "ZetaPlayer.Robot_GlassFootstep",
+      [MAT_WARPSHIELD] = "ZetaPlayer.Robot_WarpShieldFootstep"
+    }
+  end
+end
 
 function ENT:IsChasingSomeone()
   return (self.State == 'chaseranged' or self.State == 'chasemelee')
@@ -3428,6 +4076,4 @@ end
 function ENT:EyeAngles()
   return self:GetAttachmentPoint("eyes").Ang
 end
-
-
 -----------------------------------------------

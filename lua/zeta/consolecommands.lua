@@ -1,14 +1,5 @@
 AddCSLuaFile()
 
-
-
-
-
-
-
-
-
-
 function SetPlayerBirthday(ply,cmd,args,strin)
     file.Write("zetaplayerdata/player_birthday.txt",strin)
     ply:PrintMessage(HUD_PRINTCONSOLE,"Your birthday has been set to "..strin)
@@ -42,9 +33,6 @@ end
 
 function _ZetaUpdateServerCache(caller)
 
-
-
-
     _SERVERTEXTDATA = util.JSONToTable(file.Read("zetaplayerdata/textchatdata.json","DATA"))
 
     print("SERVER Text Data Updated")
@@ -76,24 +64,6 @@ function _ZetaUpdateServerCache(caller)
 
     _SERVERPFPS,_SERVERPFPDIRS = file.Find("zetaplayerdata/custom_avatars/*","DATA","nameasc")
     print("SERVER Names Updated")
-
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-    
-
-    
-
-    
 
     ----
     local managermodels = player_manager.AllValidModels()
@@ -200,12 +170,14 @@ function CleanupAllZetas(caller)
             net.Send(caller)
          return 
         end
+
         if caller:IsPlayer() then
             net.Start('zeta_notifycleanup',true)
             net.WriteString('Cleaned Up All Zetas!')
             net.WriteBool(false)
             net.Send(caller)
         end
+
     local entities = ents.FindByClass('npc_zetaplayer')
 
     for k,v in ipairs(entities) do
@@ -265,11 +237,7 @@ function CreateServerJunk()
                 currentcount = currentcount + 1
             end
         end
-            
-            
-
     end
-
 end
 
 function testzetastate(caller)
@@ -294,8 +262,6 @@ function PrecacheAllPlayermodels()
         util.PrecacheModel(v)
     end
 end
-
-
 
 function TeleportRNDZeta(caller)
     local entities = ents.GetAll()
@@ -468,7 +434,98 @@ function ZetasDiesAroundPlayer(caller)
     end
 end
 
+function SpawnZetaAtNav(caller) // Used as a replacement for MWS (This doesn't crash, very rarely it does, but not common)
 
+    local function GetPossibleSpawns() -- Used for MWS and forced spawner
+        local info_player_starts = ents.FindByClass('info_player_start')
+        local info_player_teamspawns = ents.FindByClass("info_player_teamspawn")
+        local info_player_terrorist = ents.FindByClass("info_player_terrorist")
+        local info_player_counterterrorist = ents.FindByClass("info_player_counterterrorist")
+        local info_player_combine = ents.FindByClass("info_player_combine")
+        local info_player_rebel = ents.FindByClass("info_player_rebel")
+        local info_player_allies = ents.FindByClass("info_player_allies")
+        local info_player_axis = ents.FindByClass("info_player_axis")
+        local info_coop_spawn = ents.FindByClass("info_coop_spawn")
+        local info_survivor_position = ents.FindByClass("info_survivor_position")
+        table.Add(info_player_starts,info_player_teamspawns)
+        table.Add(info_player_starts,info_player_terrorist)
+        table.Add(info_player_starts,info_player_counterterrorist)
+        table.Add(info_player_starts,info_player_combine)
+        table.Add(info_player_starts,info_player_rebel)
+        table.Add(info_player_starts,info_player_allies)
+        table.Add(info_player_starts,info_player_axis)
+        table.Add(info_player_starts,info_coop_spawn)
+        table.Add(info_player_starts,info_survivor_position)
+        return info_player_starts
+    end
+      
+
+    local areas = navmesh.GetAllNavAreas()
+    local area
+    local point
+
+    local spawns = GetPossibleSpawns()
+
+    if GetConVar('zetaplayer_mapwidespawninguseplayerstart'):GetInt() == 0 then
+
+        area = areas[math.random(#areas)]
+        if !area or !area:IsValid() then
+            areas = navmesh.GetAllNavAreas()
+            area = areas[math.random(#areas)]
+        end
+
+        if !area or !area:IsValid() then
+            return
+        end
+        
+        if area:IsUnderwater() then return end
+        point = area:GetRandomPoint()
+    else
+        spawns = GetPossibleSpawns()
+
+        local spawn = spawns[math.random(#spawns)]
+        if IsValid(spawn) then
+            point = spawn:GetPos()
+        else
+            print('RANDOM ZETA SPAWN: Player Spawn Is not Valid!')
+            caller:EmitSound(funnyfailsnds[math.random(#funnyfailsnds)], 65)
+            caller:EmitSound("buttons/button8.wav",50)
+            PrintMessage(HUD_PRINTTALK, "Spawn Failed! Check Console")
+            print("Player Spawns not vaild. Couldn't find any info_player_start on map. Using random navmesh area.")
+            return
+        end
+    end
+
+    local zeta = ents.Create('npc_zetaplayer')
+    zeta:SetPos(point)
+    zeta:SetAngles(Angle(0,math.random(0,360,0),0))
+    zeta.NaturalWeapon = GetConVar("zetaplayer_naturalspawnweapon"):GetString()
+    zeta:Spawn()
+    zeta:EmitSound(GetConVar("zetaplayer_customspawnsound"):GetString() != "" and GetConVar("zetaplayer_customspawnsound"):GetString() or 'mvm/mvm_tele_deliver.wav',85)
+    
+    if GetConVar("zetaplayer_force_zetaspawn_attackply"):GetInt() == 1 then
+        zeta:AttackEnemyForceSpawn(caller)
+        zeta:ChangeWeapon("FIST")
+    elseif GetConVar("zetaplayer_force_zetaspawn_attackply"):GetInt() == 2 then
+        zeta:AttackEnemyForceSpawn(caller)
+    elseif GetConVar("zetaplayer_force_zetaspawn_attackply"):GetInt() == 3 then
+        zeta:LookforTarget(hunt)
+        zeta:ChangeWeapon("FIST")
+    elseif GetConVar("zetaplayer_force_zetaspawn_attackply"):GetInt() == 4 then
+        zeta:LookforTarget(hunt)
+    end
+
+    local dynLight = ents.Create("light_dynamic")
+	dynLight:SetKeyValue("brightness", "2")
+	dynLight:SetKeyValue("distance", "90")
+	dynLight:SetPos(zeta:GetPos())
+	dynLight:SetLocalAngles(zeta:GetAngles())
+	dynLight:Fire("Color","54 115 222")
+	dynLight:Spawn()
+	dynLight:Activate()
+	dynLight:Fire("TurnOn","",0)
+	dynLight:Fire("Kill", "", 0.75)
+end
 
 function _ZetaTweakNavmesh()
     local areas = navmesh.GetAllNavAreas()
@@ -491,7 +548,6 @@ function _ZetaSavenavmesh()
     navmesh.Save()
     PrintMessage(HUD_PRINTTALK,"Nav Mesh has been saved!")
 end
-
 
 local funnyfailsnds = {
     "vo/k_lab/ba_whatthehell.wav",
@@ -559,8 +615,6 @@ function ZetasForceFriendToPlayer(caller)
         end
     end
 end
-
-
 
 function ZetasTargetOtherZetas(caller)
 

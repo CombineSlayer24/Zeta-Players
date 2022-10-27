@@ -4578,7 +4578,6 @@ elseif ( CLIENT ) then
             local onthinkcode
             local ondamagedcode
             local reloadtimecode
-            local disablebonemerge = false
 
             local frame = vgui.Create( "DFrame" )
             frame:SetSize( 300, 300 )
@@ -5218,7 +5217,7 @@ elseif ( CLIENT ) then
                     shellnames:AddChoice( "ShotgunShellEject" )
 
     
-                    if savedweapondata and savedweapondata[ 2 ].shellData and savedweapondata[ 2 ].shellData.name then
+                    if savedweapondata and savedweapondata[ 2 ].shellData then
                         local enum = shelltranslation[ savedweapondata[ 2 ].shellData.name ]
                         recoilanimations:ChooseOptionID( enum )
                         shellname = enum
@@ -6342,15 +6341,6 @@ clipRemove | Return true to prevent the subtraction of a clip's ammo
                 bulletcount:SetText( "Bullet Amount" )
 
 
-                label = vgui.Create( "DLabel", rightpnl )
-                label:DockMargin( 0, 20, 0, 0 )
-                label:Dock( TOP )
-                label:SetText( "Weapon Scale requires no Bone" )
-
-                label = vgui.Create( "DLabel", rightpnl )
-                --label:DockMargin( 0, 20, 0, 0 )
-                label:Dock( TOP )
-                label:SetText( "Merge!" )
 
                 local weaponscale = vgui.Create( "DNumSlider", rightpnl )
                 weaponscale:Dock( TOP )
@@ -6360,23 +6350,9 @@ clipRemove | Return true to prevent the subtraction of a clip's ammo
                 weaponscale:SetValue( savedweapondata and savedweapondata[ 2 ].weaponscale or 1 )
                 weaponscale:SetText( "Weapon Scale" )
                 weaponscalevar = savedweapondata and savedweapondata[ 2 ].weaponscale or 1
-                function weaponscale:OnValueChanged( val ) weaponscalevar = val end
-
-                label = vgui.Create( "DLabel", rightpnl )
-                label:DockMargin( 0, 20, 0, 0 )
-                label:Dock( TOP )
-                label:SetText( "No Bone Merge" )
-
-                local bonemerge = vgui.Create( "DCheckBox", rightpnl )
-                bonemerge:DockMargin( 0, 0, 150, 0 )
-                bonemerge:Dock( TOP )
-                
-                disablebonemerge = savedweapondata and savedweapondata[ 2 ].nobonemerge
-
-                bonemerge:SetChecked( tobool( disablebonemerge ) )
-
-                function bonemerge:OnChange( val ) disablebonemerge = val end
-                
+                function weaponscale:OnChange( val )
+                    weaponscalevar = val
+                end
 
 
 
@@ -6746,7 +6722,7 @@ clipRemove | Return true to prevent the subtraction of a clip's ammo
                     end
 
                     
-                    print( weaponscalevar )
+
 
                     compiledtableholder[ weaponsclassname:GetText() ] = {
 
@@ -6761,8 +6737,7 @@ clipRemove | Return true to prevent the subtraction of a clip's ammo
                         clip = clip:GetValue(),
                         keepDistance = keepdistance:GetValue(),
                         prettyPrint = weaponsprettyname:GetText(),
-                        weaponscale = weaponscalevar,
-                        nobonemerge = disablebonemerge,
+                        weaponscale = weaponscale:GetValue(),
 
                         anims = {
                             idle = compiledanimations.idle,
@@ -7550,16 +7525,6 @@ clipRemove | Return true to prevent the subtraction of a clip's ammo
 
 
 
-                label = vgui.Create( "DLabel", rightpnl )
-                label:DockMargin( 0, 20, 0, 0 )
-                label:Dock( TOP )
-                label:SetText( "Weapon Scale requires no Bone" )
-
-                label = vgui.Create( "DLabel", rightpnl )
-                --label:DockMargin( 0, 20, 0, 0 )
-                label:Dock( TOP )
-                label:SetText( "Merge!" )
-
                 local weaponscale = vgui.Create( "DNumSlider", rightpnl )
                 weaponscale:Dock( TOP )
                 weaponscale:SetDecimals( 3 )
@@ -7567,23 +7532,7 @@ clipRemove | Return true to prevent the subtraction of a clip's ammo
                 weaponscale:SetMin( 0 )
                 weaponscale:SetValue( savedweapondata and savedweapondata[ 2 ].weaponscale or 1 )
                 weaponscale:SetText( "Weapon Scale" )
-                weaponscalevar = savedweapondata and savedweapondata[ 2 ].weaponscale or 1
-                function weaponscale:OnValueChanged( val ) weaponscalevar = val end
 
-                label = vgui.Create( "DLabel", rightpnl )
-                label:DockMargin( 0, 20, 0, 0 )
-                label:Dock( TOP )
-                label:SetText( "No Bone Merge" )
-
-                local bonemerge = vgui.Create( "DCheckBox", rightpnl )
-                bonemerge:DockMargin( 0, 0, 150, 0 )
-                bonemerge:Dock( TOP )
-                
-                disablebonemerge = savedweapondata and savedweapondata[ 2 ].nobonemerge
-
-                bonemerge:SetChecked( tobool( disablebonemerge ) )
-
-                function bonemerge:OnChange( val ) disablebonemerge = val end
 
 
 
@@ -7884,8 +7833,7 @@ clipRemove | Return true to prevent the subtraction of a clip's ammo
                         melee = true,
                         clip = 1,
                         prettyPrint = weaponsprettyname:GetText(),
-                        weaponscale = weaponscalevar,
-                        nobonemerge = disablebonemerge,
+                        weaponscale = weaponscale:GetValue(),
 
                         anims = {
                             idle = compiledanimations.idle,

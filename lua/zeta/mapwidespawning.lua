@@ -1,30 +1,7 @@
 
 -- MWS
-
-local function GetPossibleSpawns()
-    local info_player_starts = ents.FindByClass('info_player_start')
-    local info_player_teamspawns = ents.FindByClass("info_player_teamspawn")
-    local info_player_terrorist = ents.FindByClass("info_player_terrorist")
-    local info_player_counterterrorist = ents.FindByClass("info_player_counterterrorist")
-    local info_player_combine = ents.FindByClass("info_player_combine")
-    local info_player_rebel = ents.FindByClass("info_player_rebel")
-    local info_player_allies = ents.FindByClass("info_player_allies")
-    local info_player_axis = ents.FindByClass("info_player_axis")
-    local info_coop_spawn = ents.FindByClass("info_coop_spawn")
-    local info_survivor_position = ents.FindByClass("info_survivor_position")
-    table.Add(info_player_starts,info_player_teamspawns)
-    table.Add(info_player_starts,info_player_terrorist)
-    table.Add(info_player_starts,info_player_counterterrorist)
-    table.Add(info_player_starts,info_player_combine)
-    table.Add(info_player_starts,info_player_rebel)
-    table.Add(info_player_starts,info_player_allies)
-    table.Add(info_player_starts,info_player_axis)
-    table.Add(info_player_starts,info_coop_spawn)
-    table.Add(info_player_starts,info_survivor_position)
-    return info_player_starts
-end
-
 function GetMWSRateAndAmount()
+
     local rate = GetConVar("zetaplayer_naturalspawnrate"):GetFloat()
     local maxamount = GetConVar('zetaplayer_mapwidespawningzetaamount'):GetInt()
     local amount = maxamount
@@ -86,6 +63,28 @@ function GetMWSRateAndAmount()
 end
 
 
+local function GetPossibleSpawns() -- Used for MWS and forced spawner
+    local info_player_starts = ents.FindByClass('info_player_start')
+    local info_player_teamspawns = ents.FindByClass("info_player_teamspawn")
+    local info_player_terrorist = ents.FindByClass("info_player_terrorist")
+    local info_player_counterterrorist = ents.FindByClass("info_player_counterterrorist")
+    local info_player_combine = ents.FindByClass("info_player_combine")
+    local info_player_rebel = ents.FindByClass("info_player_rebel")
+    local info_player_allies = ents.FindByClass("info_player_allies")
+    local info_player_axis = ents.FindByClass("info_player_axis")
+    local info_coop_spawn = ents.FindByClass("info_coop_spawn")
+    local info_survivor_position = ents.FindByClass("info_survivor_position")
+    table.Add(info_player_starts,info_player_teamspawns)
+    table.Add(info_player_starts,info_player_terrorist)
+    table.Add(info_player_starts,info_player_counterterrorist)
+    table.Add(info_player_starts,info_player_combine)
+    table.Add(info_player_starts,info_player_rebel)
+    table.Add(info_player_starts,info_player_allies)
+    table.Add(info_player_starts,info_player_axis)
+    table.Add(info_player_starts,info_coop_spawn)
+    table.Add(info_player_starts,info_survivor_position)
+    return info_player_starts
+end
 
 local areas = navmesh.GetAllNavAreas()
 local removezetas = false

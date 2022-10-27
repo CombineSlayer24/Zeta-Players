@@ -2172,6 +2172,9 @@ zetaplayer_allowphysgun ]]
             panel:Button('Kill all nearby Zetas around you','zetaplayer_force_killall',LocalPlayer())
             panel:ControlHelp('Kill all sons of bi- oh.. Kill all nearby Zetas.')
 
+            panel:Button('Spawn Zeta At Random Navmesh Area','zetaplayer_force_spawnzeta',LocalPlayer())
+            panel:ControlHelp('Spawn a zeta at a random navmeshed area.')
+
             panel:Help('---------------------------------------------------------------')
             panel:ControlHelp('Friend Force Options')
 
