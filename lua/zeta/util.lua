@@ -38,7 +38,7 @@ end
 local level = 75
 local volume = 1
 
---[[ sound.Add({
+sound.Add({
   name = "ZetaPlayer.AntlionFootstep",
   channel = CHAN_BODY, 
   level = level, 
@@ -332,12 +332,12 @@ sound.Add({
     "physics/glass/glass_sheet_step3.wav",
     "physics/glass/glass_sheet_step4.wav"
   }
-}) ]]
+})
 
 // MvM Robot Footsteps
 // possible to make a command to toggle Robot Footsteps ???
 
-sound.Add({
+--[[ sound.Add({
   name = "ZetaPlayer.AntlionFootstep",
   channel = CHAN_BODY, 
   level = level, 
@@ -926,7 +926,7 @@ sound.Add({
     "mvm/player/footsteps/robostep_17.wav",
     "mvm/player/footsteps/robostep_18.wav"
   }
-})
+}) ]]
 
 ENT.Footsteps = {
   [MAT_ANTLION] = "ZetaPlayer.AntlionFootstep",
